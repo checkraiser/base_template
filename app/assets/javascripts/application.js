@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require angular/angular
 //= require angular-rails-templates
-//= require_tree .
+//= require ng-rails-csrf
+//= require app
+//= require_tree ./services
+//= require_tree ./controllers
