@@ -1,5 +1,5 @@
-app.controller 'application_controller', ['$scope', '$window', ($scope, $window) ->
+app.controller 'application_controller', ['$scope', '$localStorage', '$sessionStorage', ($scope, $localStorage, $sessionStorage) ->
   $scope.app_user = gon.app_user
-  $scope.localStorage = $window.localStorage
-  $scope.sessionStorage = $window.sessionStorage
+  $scope.localStorage = $localStorage
+  $scope.sessionStorage = $sessionStorage
 ]
