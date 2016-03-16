@@ -1,7 +1,7 @@
 describe "home_index_controller", ->
   scope        = null
   ctrl         = null
-  window.gon.message = "Hello World 2"
+  gon.message = "Hello World 2"
   setupController =()->
     inject(($rootScope, $controller)->
       scope       = $rootScope.$new()
