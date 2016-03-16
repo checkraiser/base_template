@@ -88,6 +88,8 @@ group :development, :test do
   gem "capybara"
   gem "database_cleaner"
   gem "poltergeist"
+  gem "teaspoon-jasmine"
+  gem 'phantomjs'
 end
 
 group :development do
