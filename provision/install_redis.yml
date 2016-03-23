@@ -1,0 +1,7 @@
+---
+- hosts: all
+  remote_user: vagrant
+  gather_facts: no
+  sudo: true
+  tasks:
+    - shell: apt-get install redis-server

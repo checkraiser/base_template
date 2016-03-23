@@ -13,3 +13,5 @@
 /tmp
 /vendor/assets/bower_components
 /.vagrant
+Vagrantfile
+.idea/
