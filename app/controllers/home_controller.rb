@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	skip_authorization
-  	gon.message = "Hello World 2"
+  	gon.current_account = current_account
+  	gon.current_user = current_user
   end
 end

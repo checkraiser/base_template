@@ -6,6 +6,7 @@ gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets
@@ -75,7 +76,7 @@ gem "safety_mailer"
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
-
+gem 'ar-octopus'
 group :test do
   gem 'faker'
   gem 'launchy'
