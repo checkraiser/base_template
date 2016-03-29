@@ -12,4 +12,16 @@ class AccountBase < ActiveRecord::Base
       return nil
     end
   end
+
+  def self.activate_shard account_id
+  	account = Account.find account_id
+  	if account
+  	  self.establish_connection account.shard.to_config 
+      Account.current_id = account.id
+  	  return account
+  	else
+  	  self.establish_connection Rails.env
+      return nil
+    end
+  end
 end

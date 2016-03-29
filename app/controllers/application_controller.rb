@@ -2,9 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
-  around_action :scope_current_account
-  before_action :authenticate_user!, if: -> {current_account}
-
   before_action :store_location, :store_app_user
   #include Pundit
   include Utility
@@ -51,14 +48,5 @@ class ApplicationController < ActionController::Base
 
   
 
-  def scope_current_account
-    @current_account = AccountBase.activate_shard request.subdomain
-    logger.debug "aaaaa #{current_account}"
-    yield
-  end
-
-  def current_account
-    @current_account
-  end
-  helper_method :current_account
+  
 end

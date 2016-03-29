@@ -14,3 +14,5 @@ Rails.application.config.assets.precompile += %w(
   teaspoon-teaspoon.js
   teaspoon-jasmine.js
 )
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+ 

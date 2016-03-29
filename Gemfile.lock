@@ -44,9 +44,6 @@ GEM
       railties (>= 4.2, < 6)
       sprockets (~> 3.0)
       tilt
-    ar-octopus (0.8.6)
-      activerecord (>= 3.2.0)
-      activesupport (>= 3.2.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.5)
       execjs
@@ -447,7 +444,6 @@ DEPENDENCIES
   addressable
   ancestry
   angular-rails-templates
-  ar-octopus
   bootstrap-sass
   bower-rails
   brakeman

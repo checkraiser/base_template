@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328130051) do
+ActiveRecord::Schema.define(version: 20160328235824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,22 @@ ActiveRecord::Schema.define(version: 20160328130051) do
     t.datetime "updated_at",                          null: false
     t.integer  "shard_id"
     t.string   "subdomain"
+    t.integer  "partition"
   end
 
   add_index "accounts", ["email"], name: "index_accounts_on_email", unique: true, using: :btree
   add_index "accounts", ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
   add_index "accounts", ["shard_id"], name: "index_accounts_on_shard_id", using: :btree
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "shard_id"
+  end
+
+  add_index "courses", ["shard_id"], name: "index_courses_on_shard_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -60,12 +71,17 @@ ActiveRecord::Schema.define(version: 20160328130051) do
     t.string   "username"
     t.string   "password"
     t.string   "port"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "encoding"
     t.integer  "pool"
     t.integer  "status"
+    t.string   "ancestry"
+    t.integer  "count_of_courses",  default: 0, null: false
+    t.integer  "count_of_accounts", default: 0, null: false
   end
+
+  add_index "shards", ["ancestry"], name: "index_shards_on_ancestry", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

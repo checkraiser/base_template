@@ -76,7 +76,7 @@ gem "safety_mailer"
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
-gem 'ar-octopus'
+gem 'ancestry'
 group :test do
   gem 'faker'
   gem 'launchy'
