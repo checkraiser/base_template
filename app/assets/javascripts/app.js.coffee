@@ -1,1 +1,1 @@
-@app = angular.module('app', ['ng-rails-csrf', 'ngStorage', 'treeControl'])
+@app = angular.module('app', ['ng-rails-csrf', 'ngStorage'])

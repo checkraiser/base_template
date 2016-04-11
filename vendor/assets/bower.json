@@ -4,7 +4,6 @@
     "angular": "latest",
     "bootstrap-sass-official": "latest",
     "ngstorage": "latest",
-    "angular-mocks": "latest",
-    "angular-tree-control": "latest"
+    "angular-mocks": "latest"
   }
 }

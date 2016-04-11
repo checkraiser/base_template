@@ -5,4 +5,3 @@
 //= require angular-rails-templates
 //= require ng-rails-csrf
 //= require ngStorage
-//= require angular-tree-control

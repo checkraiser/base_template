@@ -1,6 +1,5 @@
 {
   "storage": {
     "packages": "/bower_packages"
-  },
-  "directory": "bower_components"
+  }
 }
