@@ -1,5 +1,7 @@
 FROM ruby:2.3
 MAINTAINER checkraiser11@gmail.com
+
+
 RUN apt-get update && apt-get install -y \
     libreadline-dev\
     libconfig-dev\
@@ -31,12 +33,28 @@ ENV APP_HOME /usr/src/funnelchat
 # Set up working dirs
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
-RUN git clone --recursive https://github.com/vysheng/tg.git && cd tg
-CMD [""./configure && make"]
-RUN cd ..
+
+RUN useradd -ms /bin/bash telegramd
+RUN chown -R telegramd /tmp
+RUN \
+    cd /tmp && \
+    git clone --recursive https://github.com/vysheng/tg.git && \
+    cd tg && \
+    ./configure && \
+    make && \
+    cd $APP_HOME
+
+RUN \
+    cd /tmp && \
+    git clone https://github.com/ssut/telegram-rb && \
+    cd telegram-rb && \
+    bundle install && \
+    gem build telegram-rb.gemspec && \
+    gem install telegram-rb-0.1.0.gem
 
 # Set up gems
 COPY Gemfile* $APP_HOME/
+COPY ./config/tg_server.pub /tmp/tg/tg_server.pub
 ENV BUNDLE_PATH /gems
 ENV NODE_PATH /node_modules
 RUN bundle check || bundle install
@@ -44,6 +62,8 @@ RUN npm install
 RUN npm install -g bower
 RUN npm install -g forever
 EXPOSE 3100
-
+RUN gem install eventmachine
+RUN gem install em-synchrony
+RUN gem install oj
 CMD ["./start.sh"]
 
