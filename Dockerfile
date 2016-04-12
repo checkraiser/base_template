@@ -1,5 +1,16 @@
 FROM ruby:2.3
 MAINTAINER checkraiser11@gmail.com
+RUN apt-get update && apt-get install -y \
+    libreadline-dev\
+    libconfig-dev\
+    libssl-dev\
+    lua5.2\
+    liblua5.2-dev\
+    libevent-dev\
+    libjansson-dev\
+    libpython-dev\
+    make
+
 RUN \
   cd /tmp && \
   wget http://nodejs.org/dist/node-latest.tar.gz && \
@@ -20,6 +31,9 @@ ENV APP_HOME /usr/src/funnelchat
 # Set up working dirs
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
+RUN git clone --recursive https://github.com/vysheng/tg.git && cd tg
+CMD [""./configure && make"]
+RUN cd ..
 
 # Set up gems
 COPY Gemfile* $APP_HOME/

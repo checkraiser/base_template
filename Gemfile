@@ -73,7 +73,7 @@ gem "safety_mailer"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'telegram-rb', :github => 'ssut/telegram-rb'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 gem 'ancestry'
