@@ -54,10 +54,12 @@ RUN \
 
 # Set up gems
 COPY Gemfile* $APP_HOME/
-COPY ./config/tg_server.pub /tmp/tg/tg_server.pub
+COPY ./config/tg_server.pub /tmp/
+COPY ./telegram_daemon.rb /tmp/
 ENV BUNDLE_PATH /gems
 ENV NODE_PATH /node_modules
 RUN bundle check || bundle install
+COPY package.json $APP_HOME/
 RUN npm install
 RUN npm install -g bower
 RUN npm install -g forever

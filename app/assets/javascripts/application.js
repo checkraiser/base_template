@@ -12,5 +12,6 @@
 //
 //= require vendor
 //= require app
+//= require_tree ./helpers
 //= require_tree ./services
 //= require_tree ./controllers

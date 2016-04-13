@@ -2,4 +2,5 @@ app.controller 'application_controller', ['$scope', '$localStorage', '$sessionSt
   $scope.app_user = gon.app_user
   $scope.localStorage = $localStorage
   $scope.sessionStorage = $sessionStorage
+  window.guest_user = $scope.localStorage.guest_user
 ]

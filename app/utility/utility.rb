@@ -182,5 +182,12 @@ module Utility
     end
 
   end
-
+  def push_event(user_ids, event_type, data = nil, guest_ids = [])
+    event = {}
+    event[:user_ids] = user_ids
+    event[:type] = event_type
+    event[:data] = data
+    event[:guest_ids] = guest_ids
+    $redis.publish 'new-event', event.to_json
+  end
 end
