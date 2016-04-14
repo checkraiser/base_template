@@ -1,8 +1,8 @@
 app.factory 'EventSystem', [ ()->
   self =
     user_socket: null
-    notification_created_listeners: new ListenerList()
     message_created_listeners: new ListenerList()
+    contacts_loaded_listeners: new ListenerList()
 
   self.init = ()->
     console.log "abc"
@@ -12,8 +12,12 @@ app.factory 'EventSystem', [ ()->
     console.log url
 
     self.user_socket.on "message-created", (data)->
-      console.log JSON.stringify(data.data)
+      console.log data
       self.message_created_listeners.notify(data)
+
+    self.user_socket.on "contacts-loaded", (data)->
+      console.log data
+      self.contacts_loaded_listeners.notify(data)
 
 
   return self
