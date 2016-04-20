@@ -8,7 +8,7 @@ app.factory 'EventSystem', [ ()->
     console.log "abc"
     url = window.location.hostname
 
-    self.user_socket = io.connect(url+":5001")
+    self.user_socket = io.connect(url+":5002")
     console.log url
 
     self.user_socket.on "message-created", (data)->
