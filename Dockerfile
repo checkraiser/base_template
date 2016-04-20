@@ -57,7 +57,10 @@ RUN \
     bundle install && \
     gem build telegram-rb.gemspec && \
     gem install telegram-rb-0.1.0.gem
-RUN bundle check && bundle install
+RUN \
+    cd /usr/src/funnelchat && \
+    bundle check && \
+    bundle install
 COPY package.json $APP_HOME/
 RUN npm install
 RUN npm install -g bower
