@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ruby telegram_daemon.rb
+ruby /tmp/telegram_daemon.rb
