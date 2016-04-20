@@ -29,7 +29,7 @@ RUN \
 # Default settings
 ENV RAILS_ENV development
 ENV APP_HOME /usr/src/funnelchat
-
+ENV PATH /usr/local/bin:$PATH
 # Set up working dirs
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
