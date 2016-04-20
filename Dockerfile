@@ -53,13 +53,11 @@ RUN \
     cd /tmp && \
     git clone https://github.com/ssut/telegram-rb && \
     cd telegram-rb && \
-    bundle install && \
+    bundle check || bundle install && \
     gem build telegram-rb.gemspec && \
     gem install telegram-rb-0.1.0.gem
-RUN \
-    cd /usr/src/funnelchat && \
-    bundle check && \
-    bundle install
+
+RUN bundle check || bundle install
 COPY package.json $APP_HOME/
 RUN npm install
 RUN npm install -g bower
