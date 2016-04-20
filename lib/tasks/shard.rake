@@ -1,54 +1,38 @@
 namespace :shard do
-  desc "TODO"
   task create: :environment do
-    connection = ActiveRecord::Base.connection
-  	environments = ['test', 'development', 'production']
-  	accounts = [:account1, :account2, :account3]
-  	environments.each do |env|
-      accounts.each do |account|
-        dbname = "#{account}_#{env}"
-        shard = Shard.find_by(database: dbname)
-        unless shard
-          db_conf = YAML::load(File.open(File.join("#{Rails.root}",'config','database.yml')))
-          db_conf[env]['username'] = 'postgres'
-          db_conf[env]['database'] = dbname
-          shard = Shard.create! db_conf[env]
-          shard.created!
-          shard.accounts.create! email: "#{dbname}@example.com", password: "12345678", password_confirmation: "12345678", subdomain: dbname, partition: 5
-          (1..5).each do |i|
-            dbname_child = dbname + "_partition_#{i}"
-            db_conf[env]['database'] = dbname_child
-            shard.children.create! db_conf[env]
-          end
-        end
+    require 'eventmachine'
+    require 'telegram'
+
+    EM.run do
+      telegram = Telegram::Client.new do |cfg|
+        cfg.daemon = '/home/truong/code/tg/bin/telegram-cli'
+        cfg.key = '/home/truong/code/tg/tg_server.pub'
       end
-  	end
-    Shard.all.each do |shard|
-      connection.create_database shard.database, shard.to_config
-      puts "#{shard.database} created"
-    end
-  end
-  task drop: :environment do
-    connection = ActiveRecord::Base.connection
-    Account.delete_all
-    Shard.all.each do |shard|
-      connection.drop_database shard.database
-    end
-    Shard.delete_all
-  end
-  task migrate: :environment do
-    Shard.all.each do |shard|
-      ActiveRecord::Base.establish_connection shard.to_config
-      ActiveRecord::Migrator.migrate("db/migrate/")
-      shard.migrated!
-    end
-  end
-  task create_courses: :environment do
-    Account.all.each do |acc|
-      AccountBase.activate_shard acc.id
-      (1..100).each do |i|
-        course = acc.courses.create! name: "course_#{i}"
-        puts course.attributes
+
+      telegram.connect do
+        # This block will be executed when initialized.
+
+        # See your telegram profile
+        puts telegram.profile
+
+        telegram.contacts.each do |contact|
+          puts contact
+        end
+
+        telegram.chats.each do |chat|
+          puts chat
+        end
+
+        # Event listeners
+        # When you've received a message:
+        telegram.on[Telegram::EventType::RECEIVE_MESSAGE] = Proc.new { |event|
+          # `tgmessage` is TelegramMessage instance
+          puts event.tgmessage
+        }
+        # When you've sent a message:
+        telegram.on[Telegram::EventType::SEND_MESSAGE]= Proc.new { |event|
+          puts event
+        }
       end
     end
   end

@@ -149,6 +149,8 @@ GEM
     fast_stack (0.1.0)
       rake
       rake-compiler
+    fastimage (2.0.0)
+      addressable (~> 2)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     flamegraph (0.1.0)
@@ -461,6 +463,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   addressable
   ancestry
   angular-rails-templates
@@ -485,6 +488,7 @@ DEPENDENCIES
   facets
   factory_girl_rails
   faker
+  fastimage
   flamegraph
   fog
   font-awesome-rails

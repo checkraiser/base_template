@@ -19,8 +19,8 @@ def json_convert(contact)
 end
 EM.run do
   telegram = Telegram::Client.new do |cfg|
-    cfg.daemon = '/tmp/tg/bin/telegram-cli'
-    cfg.key = '/tmp/tg_server.pub'
+    cfg.daemon = '/home/truong/code/tg/bin/telegram-cli'
+    cfg.key = '/home/truong/code/tg/tg_server.pub'
   end
 
   telegram.connect do
