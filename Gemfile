@@ -77,6 +77,8 @@ gem 'telegram-rb', :github => 'ssut/telegram-rb'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 gem 'eventmachine'
+gem 'em-synchrony'
+gem 'oj'
 group :test do
   gem 'faker'
   gem 'launchy'
