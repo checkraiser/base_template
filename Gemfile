@@ -78,6 +78,7 @@ gem 'telegram-rb', :github => 'ssut/telegram-rb'
 gem 'capistrano-rails', group: :development
 gem 'eventmachine'
 gem 'em-synchrony'
+gem 'em-http-request'
 gem 'oj'
 group :test do
   gem 'faker'
