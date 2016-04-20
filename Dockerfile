@@ -42,7 +42,6 @@ COPY package.json $APP_HOME/
 RUN npm install
 RUN npm install -g bower
 RUN npm install -g forever
-RUN bundle exec rake bower:install['--allow-root']
 EXPOSE 3100
 CMD ["./start.sh"]
 
