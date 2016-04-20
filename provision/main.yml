@@ -1,7 +1,0 @@
----
-#  - include: install_dependencies.yml
-#  - include: install_ruby.yml
-#  - include: install_node.yml
-#  - include: install_postgres
-#  - include: install_phantom.yml
-  - include: install_redis.yml

@@ -40,3 +40,14 @@ services:
     image: busybox
     volumes:
       - /bower_packages
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx
+    image: proxy
+    links:
+      - rb3
+    ports:
+      - "80:80"
+      - "5001:5001"

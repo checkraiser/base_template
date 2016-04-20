@@ -33,30 +33,10 @@ ENV APP_HOME /usr/src/funnelchat
 # Set up working dirs
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
-
-RUN useradd -ms /bin/bash telegramd
-RUN chown -R telegramd /tmp
-RUN \
-    cd /tmp && \
-    git clone --recursive https://github.com/vysheng/tg.git && \
-    cd tg && \
-    ./configure && \
-    make && \
-    cd $APP_HOME
 # Set up gems
 COPY Gemfile* $APP_HOME/
-COPY ./config/tg_server.pub /tmp/
-COPY ./telegram_daemon.rb /tmp/
 ENV BUNDLE_PATH /gems
 ENV NODE_PATH /node_modules
-RUN \
-    cd /tmp && \
-    git clone https://github.com/ssut/telegram-rb && \
-    cd telegram-rb && \
-    bundle check || bundle install && \
-    gem build telegram-rb.gemspec && \
-    gem install telegram-rb-0.1.0.gem
-
 RUN bundle check || bundle install
 COPY package.json $APP_HOME/
 RUN npm install

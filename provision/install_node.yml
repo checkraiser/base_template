@@ -1,8 +1,0 @@
----
-- hosts: all
-  remote_user: vagrant
-  gather_facts: no
-  sudo: false
-  tasks:
-    - shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh
-    - shell: bash -lc '. ~/.nvm/nvm.sh && nvm install 5.0 && nvm use 5.0'
