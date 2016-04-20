@@ -53,7 +53,6 @@ RUN \
     cd /tmp && \
     git clone https://github.com/ssut/telegram-rb && \
     cd telegram-rb && \
-    bundle check && \
     bundle install && \
     gem build telegram-rb.gemspec && \
     gem install telegram-rb-0.1.0.gem
