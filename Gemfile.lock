@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/ssut/telegram-rb.git
-  revision: 5d01b8232328aa46bba5d914448842921f16db73
-  specs:
-    telegram-rb (0.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,16 +68,6 @@ GEM
       useragent (>= 0.4)
     builder (3.2.2)
     byebug (8.2.2)
-    capistrano (3.4.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (~> 1.3)
-    capistrano-bundler (1.1.4)
-      capistrano (~> 3.1)
-      sshkit (~> 1.2)
-    capistrano-rails (1.1.6)
-      capistrano (~> 3.1)
-      capistrano-bundler (~> 1.1)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
@@ -101,7 +85,6 @@ GEM
     coffee-script-source (1.10.0)
     colorize (0.7.7)
     concurrent-ruby (1.0.1)
-    cookiejar (0.3.0)
     daemons (1.2.3)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
@@ -119,20 +102,9 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     dnsruby (1.59.2)
-    em-http-request (1.1.3)
-      addressable (>= 2.3.4)
-      cookiejar (<= 0.3.0)
-      em-socksify (>= 0.3)
-      eventmachine (>= 1.0.3)
-      http_parser.rb (>= 0.6.0)
-    em-socksify (0.3.1)
-      eventmachine (>= 1.0.0.beta.4)
-    em-synchrony (1.0.5)
-      eventmachine (>= 1.0.0.beta.1)
     email_verifier (0.1.0)
       dnsruby (>= 1.5)
     erubis (2.7.0)
-    eventmachine (1.2.0.1)
     exception_notification (4.1.4)
       actionmailer (~> 4.0)
       activesupport (~> 4.0)
@@ -149,8 +121,6 @@ GEM
     fast_stack (0.1.0)
       rake
       rake-compiler
-    fastimage (2.0.0)
-      addressable (~> 2)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     flamegraph (0.1.0)
@@ -288,7 +258,6 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    http_parser.rb (0.6.0)
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
@@ -310,13 +279,9 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (3.0.2)
     ng-rails-csrf (0.1.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-    oj (2.15.0)
     orm_adapter (0.5.0)
     paranoia (2.1.5)
       activerecord (~> 4.0)
@@ -422,9 +387,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.8.1)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     teaspoon (1.1.4)
       railties (>= 3.2.5, < 5)
     teaspoon-jasmine (2.3.4)
@@ -463,7 +425,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   addressable
   ancestry
   angular-rails-templates
@@ -472,7 +433,6 @@ DEPENDENCIES
   brakeman
   browser_details
   byebug
-  capistrano-rails
   capybara
   coffee-rails (~> 4.1.0)
   colorize
@@ -480,15 +440,11 @@ DEPENDENCIES
   database_cleaner
   delayed_job_active_record
   devise
-  em-http-request
-  em-synchrony
   email_verifier
-  eventmachine
   exception_notification
   facets
   factory_girl_rails
   faker
-  fastimage
   flamegraph
   fog
   font-awesome-rails
@@ -498,7 +454,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   ng-rails-csrf
-  oj
   paranoia (~> 2.0)
   pg (~> 0.15)
   pg_search
@@ -515,7 +470,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   teaspoon-jasmine
-  telegram-rb!
   turbolinks
   uglifier (>= 1.3.0)
   validates_email_format_of
