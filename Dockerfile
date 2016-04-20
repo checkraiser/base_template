@@ -64,9 +64,5 @@ RUN npm install
 RUN npm install -g bower
 RUN npm install -g forever
 EXPOSE 3100
-RUN gem install eventmachine
-RUN gem install em-synchrony
-RUN gem install oj
-ENV PATH /usr/local/bin:$PATH
 CMD ["./start.sh"]
 
