@@ -79,6 +79,8 @@ gem 'capistrano-rails', group: :development
 gem 'eventmachine'
 gem 'em-synchrony'
 gem 'em-http-request'
+gem 'activesupport'
+gem 'fastimage'
 gem 'oj'
 group :test do
   gem 'faker'
