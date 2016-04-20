@@ -76,7 +76,6 @@ gem "safety_mailer"
 gem 'telegram-rb', :github => 'ssut/telegram-rb'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
-gem 'redis'
 gem 'eventmachine'
 group :test do
   gem 'faker'
