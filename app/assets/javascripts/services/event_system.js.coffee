@@ -5,10 +5,9 @@ app.factory 'EventSystem', [ ()->
     contacts_loaded_listeners: new ListenerList()
 
   self.init = ()->
-    console.log "abc"
-    url = window.location.hostname
+    url = window.location.origin
 
-    self.user_socket = io.connect('http://' + url+":5002/")
+    self.user_socket = io.connect(url)
     console.log url
 
     self.user_socket.on "message-created", (data)->
