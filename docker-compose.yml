@@ -4,7 +4,7 @@ services:
     build: .
     ports:
       - "3100:3100"
-      - "5001:5001"
+      - "5002:5002"
     volumes:
       - .:/usr/src/funnelchat
     links:
@@ -58,4 +58,3 @@ services:
       - rb3
     ports:
       - "80:80"
-      - "5002:5002"
