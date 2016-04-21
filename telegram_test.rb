@@ -1,7 +1,7 @@
 require 'eventmachine'
 require 'telegram'
 
-EM.run
+EM.run do
   telegram = Telegram::Client.new do |cfg|
     cfg.daemon = '/home/truong/code/tg/bin/telegram-cli'
     cfg.key = '/home/truong/code/tg/tg_server.pub'
