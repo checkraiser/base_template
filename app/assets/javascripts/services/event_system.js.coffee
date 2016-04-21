@@ -5,9 +5,9 @@ app.factory 'EventSystem', [ ()->
     contacts_loaded_listeners: new ListenerList()
 
   self.init = ()->
-    url = window.location.origin
+    url = window.location.hostname
 
-    self.user_socket = io.connect(url)
+    self.user_socket = io.connect(url + ':5002')
     console.log url
 
     self.user_socket.on "message-created", (data)->
