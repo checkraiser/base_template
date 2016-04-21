@@ -1,4 +1,4 @@
-var redis = require('redis').createClient('6379', '192.168.99.100')
+var redis = require('redis').createClient('6379', '127.17.0.1')
 redis.subscribe('message-created');
 redis.subscribe('contacts-loaded');
 var io = require('socket.io').listen(5002);

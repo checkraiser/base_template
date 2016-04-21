@@ -2,7 +2,7 @@ require 'eventmachine'
 require 'telegram'
 require 'redis'
 require 'json'
-$redis = Redis.new(:host => '192.168.99.100', :port=> 6379)
+$redis = Redis.new(:host => '127.17.0.1', :port=> 6379)
 
 def push_event(event_name, user_ids, event_type, data = nil, guest_ids = [])
   event = {}
