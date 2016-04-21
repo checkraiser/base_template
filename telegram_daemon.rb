@@ -20,6 +20,7 @@ EM.run do
   telegram = Telegram::Client.new do |cfg|
     cfg.daemon = '/home/truong/code/tg/bin/telegram-cli'
     cfg.key = '/home/truong/code/tg/tg_server.pub'
+    cfg.sock = '/home/truong/code/tg/tele.sock'
   end
 
   telegram.connect do
@@ -29,6 +30,7 @@ EM.run do
 
     telegram.contacts.each do |contact|
       push_event('contacts-loaded', [], contact.class, json_convert(contact))
+      puts json_convert(contact)
     end
 
     telegram.chats.each do |chat|
@@ -40,12 +42,16 @@ EM.run do
     telegram.on[Telegram::EventType::RECEIVE_MESSAGE] = Proc.new { |event|
       # `tgmessage` is TelegramMessage instance
       message = event.message
+      puts json_convert(message.from)
+      puts json_convert(message.to)
       push_event('message-created', [], event.tgmessage.class, {text: message.text, from: json_convert(message.from), to: json_convert(message.to)} )
       # redis.push ()
     }
     # When you've sent a message:
     telegram.on[Telegram::EventType::SEND_MESSAGE]= Proc.new { |event|
       message = event.message
+      puts json_convert(message.from)
+      puts json_convert(message.to)
       push_event('message-created', [], event.tgmessage.class, {text: message.text, from: json_convert(message.from), to: json_convert(message.to)})
     }
   end
