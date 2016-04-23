@@ -77,7 +77,6 @@ gem "safety_mailer"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "puma"
-gem "daemons"
 
 group :test do
   gem 'faker'
