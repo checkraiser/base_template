@@ -17,3 +17,4 @@ Vagrantfile
 .idea/
 node_modules/
 Gemfile.lock
+dump.rdb

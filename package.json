@@ -1,11 +1,14 @@
 {
-  "name": "realtime-funnelchat",
+  "name": "funnelchat",
   "version": "0.0.1",
   "description": "Realtime server for funnelchat app",
+  "repository": "./realtime",
   "dependencies": {
-    "socket.io": "1.3.7",
+    "config": "^1.20.1",
+    "js-yaml": "^3.6.0",
     "redis": "0.7.3",
-    "request": "2.65.0"
+    "request": "2.65.0",
+    "socket.io": "1.3.7"
   },
   "main": "realtime-server.js",
   "devDependencies": {},

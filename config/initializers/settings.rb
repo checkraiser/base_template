@@ -1,0 +1,1 @@
+SETTINGS = YAML::load_file Rails.root.join('config', "server_settings.yml")
