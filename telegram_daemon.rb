@@ -2,12 +2,11 @@ require 'eventmachine'
 require 'telegram'
 require 'redis'
 require 'json'
-redis_host = ""
-if (ENV['TELEGRAM_ENV'] == 'development')
-  redis_host = '192.168.99.100'
-else
-  redis_host = '127.17.0.1'
-end
+require 'yaml'
+SETTINGS = YAML::load_file File.join(__dir__, 'config', 'server_settings.yml')
+env = ENV['TELEGRAM_ENV']
+
+redis_host = SETTINGS[env]['redis_host']
 
 $redis = Redis.new(:host => redis_host, :port=> 6379)
 
@@ -25,16 +24,9 @@ def json_convert(contact)
 end
 EM.run do
   telegram = Telegram::Client.new do |cfg|
-    if ENV['TELEGRAM_ENV'] == 'development'
-      cfg.daemon = '/Users/checkraiser/Code/tg/bin/telegram-cli'
-      cfg.key = '/Users/checkraiser/Code/tg/tg_server.pub'
-      cfg.sock = '/Users/checkraiser/Code/tg/tele.sock'
-    else
-      cfg.daemon = '/home/truong/code/tg/bin/telegram-cli'
-      cfg.key = '/home/truong/code/tg/tg_server.pub'
-      cfg.sock = '/home/truong/code/tg/tele.sock'
-    end
-
+    cfg.daemon = SETTINGS[env]['cfg_daemon']
+    cfg.key = SETTINGS[env]['cfg_key']
+    cfg.sock = SETTINGS[env]['cfg_sock']
   end
 
   telegram.connect do

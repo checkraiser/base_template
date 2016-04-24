@@ -2,7 +2,13 @@ development:
   host_name: "192.168.99.100"
   realtime_host_name: "127.0.0.1"
   redis_host: "192.168.99.100"
+  cfg_daemon: "/Users/checkraiser/Code/tg/bin/telegram-cli"
+  cfg_key: "/Users/checkraiser/Code/tg/tg_server.pub"
+  cfg_sock: "/Users/checkraiser/Code/tg/tele.sock"
 staging:
   host_name: '139.59.172.84'
   realtime_host_name: '139.59.172.84'
   redis_host: '127.17.0.1'
+  cfg_daemon: "/home/truong/Code/tg/bin/telegram-cli"
+  cfg_key: "/home/truong/Code/tg/tg_server.pub"
+  cfg_sock: "/home/truong/Code/tg/tele.sock"
