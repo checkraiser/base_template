@@ -1,0 +1,62 @@
+version: "2"
+services:
+  rb3:
+    build: .
+    ports:
+      - "3100:3100"
+    volumes:
+      - .:/usr/src/funnelchat
+    links:
+      - db3
+      - redis
+      - bower_packages3
+    # This tells the api container to mount 'gems' folder from 'bundle' image
+    # to api containers /gems path
+    volumes_from:
+      - bundle3
+      - node_modules3
+      - bower_packages3
+
+    depends_on:
+      - mailcatcher
+
+    environment:
+      RAILS_ENV: staging
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  db3:
+    image: postgres
+
+  bundle3:
+    image: busybox
+    volumes:
+      - /gems
+
+  node_modules3:
+    image: busybox
+    volumes:
+      - /node_modules
+
+  bower_packages3:
+    image: busybox
+    volumes:
+      - /bower_packages
+
+  mailcatcher:
+      image: yappabe/mailcatcher
+      ports:
+          - 1025:1025
+          - 1080:1080
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx
+    image: proxy
+    links:
+      - rb3
+    ports:
+      - "80:80"
