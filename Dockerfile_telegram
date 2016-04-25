@@ -1,0 +1,34 @@
+FROM ruby:2.3
+MAINTAINER checkraiser11@gmail.com
+RUN useradd -ou 0 -g 0 telegramd
+RUN apt-get update && apt-get install -y \
+    libreadline-dev\
+    libconfig-dev\
+    libssl-dev\
+    lua5.2\
+    liblua5.2-dev\
+    libevent-dev\
+    libjansson-dev\
+    libpython-dev\
+    make
+
+
+RUN mkdir -p /root/funnelchat2
+ENV APP_HOME /root/funnelchat2
+RUN cd $APP_HOME && \
+    git clone --recursive https://github.com/vysheng/tg.git && \
+    cd tg && \
+    pwd && \
+    ./configure && \
+    make
+WORKDIR $APP_HOME
+
+COPY ./start_telegram.sh $APP_HOME/
+COPY ./config/tg_server.pub $APP_HOME/
+ENV PATH $APP_HOME/tg/bin/:$PATH
+RUN mkdir $HOME/.telegram-cli
+ADD ./.telegram-cli $HOME/
+RUN ls $HOME/.telegram-cli
+RUN chown -R telegramd $HOME/.telegram-cli
+
+CMD ["./start_telegram.sh"]
