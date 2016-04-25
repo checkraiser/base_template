@@ -21,14 +21,24 @@ RUN cd $APP_HOME && \
     pwd && \
     ./configure && \
     make
-WORKDIR $APP_HOME
 
+RUN cd $APP_HOME && \
+    git clone https://github.com/ssut/telegram-rb.git && \
+    cd telegram-rb && \
+    bundle install && \
+    gem build telegram-rb.gemspec && \
+    gem install telegram-rb-0.1.0.gem
+
+WORKDIR $APP_HOME
+COPY ./telegram_control.rb $APP_HOME/
+COPY ./telegram_daemon.rb $APP_HOME/
 COPY ./start_telegram.sh $APP_HOME/
 COPY ./config/tg_server.pub $APP_HOME/
 ENV PATH $APP_HOME/tg/bin/:$PATH
 RUN mkdir $HOME/.telegram-cli
-ADD ./.telegram-cli $HOME/
-RUN ls $HOME/.telegram-cli
+#ADD ./.telegram-cli $HOME/
+#RUN ls $HOME/.telegram-cli
 RUN chown -R telegramd $HOME/.telegram-cli
+RUN gem install daemons
+RUN gem install redis
 
-CMD ["./start_telegram.sh"]

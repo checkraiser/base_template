@@ -3,12 +3,12 @@ require 'telegram'
 require 'redis'
 require 'json'
 require 'yaml'
-SETTINGS = YAML::load_file File.join(__dir__, 'config', 'server_settings.yml')
-env = ENV['TELEGRAM_ENV']
+#SETTINGS = YAML::load_file File.join(__dir__, 'config', 'server_settings.yml')
+#env = ENV['TELEGRAM_ENV']
+app_home = ENV['APP_HOME']
+#redis_host = SETTINGS[env]['redis_host']
 
-redis_host = SETTINGS[env]['redis_host']
-
-$redis = Redis.new(:host => redis_host, :port=> 6379)
+$redis = Redis.new(:host => 'redis', :port=> 6379)
 
 def push_event(event_name, user_ids, event_type, data = nil, guest_ids = [])
   event = {}
@@ -24,9 +24,9 @@ def json_convert(contact)
 end
 EM.run do
   telegram = Telegram::Client.new do |cfg|
-    cfg.daemon = SETTINGS[env]['cfg_daemon']
-    cfg.key = SETTINGS[env]['cfg_key']
-    cfg.sock = SETTINGS[env]['cfg_sock']
+    cfg.daemon = "#{app_home}/tg/bin/telegram-cli"
+    cfg.key = "#{app_home}/tg/tg_server.pub"
+    cfg.sock = "#{app_home}/tg/tele.sock"
   end
 
   telegram.connect do
