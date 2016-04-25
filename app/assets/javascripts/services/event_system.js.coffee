@@ -5,8 +5,8 @@ app.factory 'EventSystem', ['Api', (Api)->
     contacts_loaded_listeners: new ListenerList()
 
   self.init = ()->
-    #url = window.location.hostname
-    url = window.realtime_host_name
+    url = window.location.hostname
+    #url = window.realtime_host_name
     self.user_socket = io.connect(url + ':5002')
     console.log url
 

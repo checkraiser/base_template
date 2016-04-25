@@ -4,6 +4,7 @@ services:
     build: .
     ports:
       - "3100:3100"
+      - "5002:5002"
     volumes:
       - .:/usr/src/funnelchat
     links:

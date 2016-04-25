@@ -42,3 +42,4 @@ RUN chown -R telegramd $HOME/.telegram-cli
 RUN gem install daemons
 RUN gem install redis
 
+CMD ["./start_telegram.sh"]

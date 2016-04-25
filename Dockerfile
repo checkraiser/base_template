@@ -29,7 +29,9 @@ ENV NODE_PATH /node_modules
 RUN bundle check || bundle install
 COPY package.json $APP_HOME/
 RUN npm install
+RUN npm install -g forever
 RUN npm install -g bower
 EXPOSE 3100
+EXPOSE 5002
 CMD ["./start.sh"]
 
