@@ -23,7 +23,7 @@ RUN cd $APP_HOME && \
     make
 
 RUN cd $APP_HOME && \
-    git clone https://github.com/ssut/telegram-rb.git && \
+    git clone https://github.com/checkraiser/telegram-rb.git && \
     cd telegram-rb && \
     bundle install && \
     gem build telegram-rb.gemspec && \
