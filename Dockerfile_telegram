@@ -39,6 +39,9 @@ RUN mkdir $HOME/.telegram-cli
 #ADD ./.telegram-cli $HOME/
 #RUN ls $HOME/.telegram-cli
 RUN chown -R telegramd $HOME/.telegram-cli
+#RUN $APP_HOME/tg/bin/telegram-cli -k $APP_HOME/tg_server.pub
 RUN gem install daemons
 RUN gem install redis
 RUN gem install em-hiredis
+
+CMD ["ls"]

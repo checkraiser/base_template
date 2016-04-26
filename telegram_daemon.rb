@@ -51,25 +51,26 @@ def process_telegram(telegram)
     push_event('message-created', [], event.tgmessage.class, {text: message.text, from: json_convert(message.from), to: json_convert(message.to)})
   }
 end
-EM.run do
-  $redis = EM::Hiredis.connect "redis://redis:6379"
-  telegram = Telegram::Client.new do |cfg|
-    cfg.daemon = "#{app_home}/tg/bin/telegram-cli"
-    cfg.key = "#{app_home}/tg/tg_server.pub"
-    cfg.sock = "#{app_home}/tg/tele.sock"
-  end
+@logger = Logger.new('hello.log')
+  EM.run do
+    $redis = EM::Hiredis.connect "redis://redis:6379"
+    telegram = Telegram::Client.new do |cfg|
+      cfg.daemon = "#{app_home}/tg/bin/telegram-cli"
+      cfg.key = "#{app_home}/tg/tg_server.pub"
+      cfg.sock = "#{app_home}/tg/tele.sock"
+    end
 
-  telegram.connect do
-    # This block will be executed when initialized.
+    telegram.connect do
+      # This block will be executed when initialized.
 
-    # See your telegram profile
-    process_telegram telegram
-    $redis.pubsub.subscribe("send-message") { |msg|
-      data = JSON.parse(msg)
-      telegram.msg(data['user'], data['msg']) do |success, dat|
-        puts dat
-      end
-    }
+      # See your telegram profile
+      process_telegram telegram
+      $redis.pubsub.subscribe("send-message") { |msg|
+        data = JSON.parse(msg)
+        telegram.msg(data['user'], data['msg']) do |success, dat|
+          puts dat
+        end
+      }
+    end
   end
-end
 
