@@ -1,6 +1,6 @@
-== Installation
+## Installation
 
-=== On local machine
+### On local machine
 
 - Install DockerToolbox
 
@@ -17,9 +17,9 @@ docker-compose up
 - Go to `http://192.168.99.100` to run
 
 
-=== On Digital Ocean
+### On Digital Ocean
 
-=== Running
+## Running
 
 Each time running, just run:
 
