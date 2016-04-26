@@ -26,8 +26,11 @@ Each time running, just run:
 ```
 docker-machine start
 eval $(docker-machine env)
-In one terminal: docker-compose up
-In another terminal: docker-compose run mytelegram ./start_telegram
+./start_all_docker.sh
 ```
 
 Visit `http://192.168.99.100` to run
+
+## Troubleshooting
+
+- Rebuild images when pull new commit: `./rebuild_all_docker.sh`
