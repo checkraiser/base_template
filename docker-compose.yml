@@ -25,6 +25,8 @@ services:
 
   db3:
     image: postgres
+    ports:
+      - "5432:5432"
 
   bundle3:
     image: busybox
