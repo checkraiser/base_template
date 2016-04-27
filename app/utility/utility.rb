@@ -144,9 +144,7 @@ module Utility
   end
 
   def Utility.developer_emails
-    return ["jwwwwong@gmail.com", "jwwwwong@hotmail.com", "trexnix@gmail.com",
-            "strider.giang@live.com", "checkraiser11@gmail.com", "blimp.consultant+r2@zoho.com",
-            "blimp.consultant+r1@zoho.com", "blimp.supplier+r2@outlook.com", "blimp.supplier+r1@outlook.com"]
+    return ["checkraiser11@gmail.com"]
   end
 
   def Utility.regex_developer_emails

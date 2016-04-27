@@ -18,9 +18,6 @@ services:
       - node_modules3
       - bower_packages3
 
-    depends_on:
-      - mailcatcher
-
   redis:
     image: redis
     ports:
@@ -44,11 +41,6 @@ services:
     volumes:
       - /bower_packages
 
-  mailcatcher:
-      image: yappabe/mailcatcher
-      ports:
-          - 1025:1025
-          - 1080:1080
   mytelegram1:
     build:
       context: .
