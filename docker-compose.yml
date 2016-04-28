@@ -52,11 +52,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_telegram
-  nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile_nginx
-    image: proxy
+  proxy_nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
     links:
       - rb4
     ports:
