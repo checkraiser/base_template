@@ -29,7 +29,7 @@ gem 'bower-rails'
 gem 'haml-rails'
 gem 'angular-rails-templates'
 gem 'gon'
-gem 'colorize'
+#gem 'colorize'
 gem 'devise'
 # Use pg_search for postgreSQL search
 gem 'pg_search'
@@ -41,10 +41,10 @@ gem 'pundit'
 gem 'rb-readline'
 
 # Use ancestry to manage tree structures
-gem 'ancestry'
+#gem 'ancestry'
 
 # Use Paranoia to manage soft-deletion
-gem "paranoia", "~> 2.0"
+#gem "paranoia", "~> 2.0"
 gem 'redis'
 gem 'ng-rails-csrf'
 gem 'delayed_job_active_record'
@@ -53,22 +53,22 @@ gem 'validates_email_format_of'
 gem "daemons"
 
 # Use Browser Details to add the user's browser information in logs
-gem 'browser_details'
-gem 'exception_notification'
-gem 'fog'
+#gem 'browser_details'
+#gem 'exception_notification'
+#gem 'fog'
 
 # Use Addressable for URI handling
-gem 'addressable'
+#gem 'addressable'
 
 # Use Email Verifier for checking if an email address is real
-gem 'email_verifier'
+#gem 'email_verifier'
 
 # use rack-mini-profiler and Flamegraph for profiling
-gem 'rack-mini-profiler'
-gem 'flamegraph'
+#gem 'rack-mini-profiler'
+#gem 'flamegraph'
 
 # use Safety Mailer to restrict email sending
-gem "safety_mailer"
+#gem "safety_mailer"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
