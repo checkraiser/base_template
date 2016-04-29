@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/usr/src/funnelchat
     links:
-      - db4
+      - db
       - redis
       - bower_packages3
     # This tells the api container to mount 'gems' folder from 'bundle' image
@@ -23,7 +23,7 @@ services:
     ports:
       - "6379:6379"
 
-  db4:
+  db:
     image: postgres
     volumes_from:
       - pgdata2
