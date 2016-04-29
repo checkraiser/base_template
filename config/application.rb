@@ -21,6 +21,7 @@ module Receta
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.autoload_paths += %W(#{config.root}/app/utility)
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
 
@@ -33,5 +34,7 @@ module Receta
         resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options], :expose => ['Link']
       end
     end
+    settings = YAML::load_file Rails.root.join('config', "server_settings.yml")
+    Rails.application.routes.default_url_options[:host] = settings[Rails.env]['host']
   end
 end

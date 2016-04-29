@@ -1,11 +1,3 @@
 .container{ng: {controller: "home_index_controller"}}
-  .row
-    .column-md-3
-      %ul
-        %li{"ng-repeat" => "data in contacts"}
-          {{data.name}} - {{data.username}} - {{data.phone}}
-    .column-md-9
-      %ul
-        %li{"ng-repeat" => "data in messages"}
-          From {{data.from.name + ' ' + data.from.phone}}, to {{data.to.name + ' ' + data.to.phone}}: {{data.text}}
+  Hello {{app_user.email}}
 

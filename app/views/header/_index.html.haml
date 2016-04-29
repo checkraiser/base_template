@@ -1,0 +1,20 @@
+.header.top-bar{ng: {controller: "header_controller"}}
+  %nav.navbar
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle.collapsed{data: {toggle: "collapse", target: "#header-navbar-collapse"}}
+          %span.sr-only Toggle navigation
+          .fa.fa-bars
+      #header-navbar-collapse.collapse.navbar-collapse
+        %ul.nav.navbar-nav{ng: {if: "app_user.is_admin"}}
+          %li
+            %a{href: "/clients"}
+              Clients
+          %li
+            %a{href: "/contacts"}
+              Contacts
+      %ul.nav.navbar-nav.navbar-right
+        %li{ng: {if: "!app_user.is_signed_in"}}
+          %a{href: "/users/sign_in"} Login
+        %li{ng: {if: "app_user.is_signed_in"}}
+          = link_to('Logout', destroy_user_session_path, :method => :delete)

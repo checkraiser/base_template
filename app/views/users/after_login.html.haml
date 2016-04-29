@@ -1,0 +1,9 @@
+= page_title "Initializing FunnelChat App"
+= render "layout_customizations/hide_topnav"
+.after-login{ng: {controller: "users_after_login_controller"},
+  "size-to-window" => true, "height-percentage" => "70"}
+  .loading-block
+    .loading-block-content
+      .h2-font
+        %span.fa.fa-pulse.fa-spinner
+        Initializing ...

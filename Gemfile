@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower-rails'
 gem 'haml-rails'
 gem 'angular-rails-templates'
-gem 'gon'
+gem 'gon', '5.2.3'
 #gem 'colorize'
 gem 'devise'
 # Use pg_search for postgreSQL search
@@ -58,7 +58,7 @@ gem "daemons"
 #gem 'fog'
 
 # Use Addressable for URI handling
-#gem 'addressable'
+gem 'addressable'
 
 # Use Email Verifier for checking if an email address is real
 #gem 'email_verifier'
@@ -93,12 +93,13 @@ group :development, :test do
   gem 'phantomjs'
 end
 
-group :development do
+group :development, :staging do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'brakeman', :require => false
+  gem 'better_errors'
 end
 

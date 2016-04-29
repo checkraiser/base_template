@@ -180,6 +180,21 @@ module Utility
     end
 
   end
+  def rails_url_helper
+    Utility.rails_url_helper
+  end
+
+  def Utility.rails_url_helper
+    Rails.application.routes.url_helpers
+  end
+
+  def rails_root_url
+    Utility.rails_root_url
+  end
+
+  def Utility.rails_root_url
+    Rails.application.routes.url_helpers.root_url
+  end
   def push_event(user_ids, event_type, data = nil, guest_ids = [])
     event = {}
     event[:user_ids] = user_ids
