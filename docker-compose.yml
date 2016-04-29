@@ -25,8 +25,6 @@ services:
 
   db:
     image: postgres
-    volumes_from:
-      - pgdata2
 
   bundle3:
     image: busybox
@@ -42,11 +40,6 @@ services:
     image: busybox
     volumes:
       - /bower_packages
-
-  pgdata2:
-    image: busybox
-    volumes:
-      - /var/lib/postgresql/data/pgdata
 
   mytelegram1:
     build:
