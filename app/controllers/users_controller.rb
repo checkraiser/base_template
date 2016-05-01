@@ -15,4 +15,8 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def index
+    authorize :user
+  end
 end
