@@ -18,5 +18,11 @@ class UsersController < ApplicationController
 
   def index
     authorize :user
+    get_all_users
+  end
+
+  protected
+  def get_all_users
+    gon.users = User.all
   end
 end
