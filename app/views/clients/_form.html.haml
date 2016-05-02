@@ -1,0 +1,12 @@
+.card.first
+  .row
+    .col-md-12
+      %h1 Client Details
+  .row
+    .col-md-12
+      .field
+        %label.required Name
+        %input{type: "text", ng: {model: "view_model.client.name"}, name: "client[name]", autofocus: true}
+      .field
+        %label.required Url
+        %input{type: "text", ng: {model: "view_model.client.url"}, name: "client[url]"}

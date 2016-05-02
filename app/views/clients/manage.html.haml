@@ -1,2 +1,30 @@
-= page_title "Manage Clients"
-.page.users-manage{ng: {controller: "clients_manage_controller"}}
+= page_title "Manage clients"
+.page.clients-manage{ng: {controller: "clients_manage_controller"}}
+  = render "clients/new_client_modal"
+  = render "clients/settings_client_modal"
+  .card.first
+    .row
+      .col-xs-6
+        %h1 Clients ({{Client.index.length || 0}})
+      .col-xs-6.text-right
+        %button.btn.btn-default{ng: {click: "open_new_client_modal($event)"}}
+          New client
+    .table.td-padding-small
+      .tr.border-bottom
+        .td
+          %strong Name
+        .td
+          %strong Url
+        .td
+      .tr.border-bottom{ng: {repeat: "client in Client.index"}}
+        .td
+          {{client.name}}
+        .td
+          {{client.url}}
+        .td
+          %button.btn.btn-default{ng: {click: "open_settings_client_modal(client, $event)"}}
+            Settings
+    .row{ng: {if: "is_empty(Client.index)"}}
+      .col-md-12
+        .info
+          No clients yet

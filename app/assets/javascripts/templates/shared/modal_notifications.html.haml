@@ -1,0 +1,11 @@
+.modal-notifications
+  .row
+    .col-md-12
+      .alert.alert-danger.animate-fade{"ng-if" => "!self.is_empty(self.error_message()) || !self.is_empty(self.errors())"}
+        %div{"ng-if" => "!self.is_empty(self.errors())"}
+          {{self.error_message()}}
+        %div{"ng-if" => "self.is_empty(self.errors())"}
+          {{self.error_message()}}
+        %ul
+          %li{"ng-repeat" => "error in self.errors()"}
+            {{error}}

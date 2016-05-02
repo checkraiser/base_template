@@ -1,0 +1,14 @@
+.new-client-modal.modal.fade{tabindex: -1}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h1
+          New Client
+      .modal-body
+        = render "clients/form"
+      .modal-footer.text-right
+        %button.btn.btn-default{type: "button", "data-dismiss" => "modal"}
+          Close
+        %button.btn.btn-primary{type: "button", "data-loading-text" => "Creating...", ng: {click: "create_client(view_model.client)"}}
+          Create client
+

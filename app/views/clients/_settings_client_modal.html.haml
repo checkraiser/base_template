@@ -1,0 +1,13 @@
+.settings-client-modal.modal.fade{tabindex: -1}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h1
+          Client Details
+      .modal-body
+        = render "clients/form"
+      .modal-footer.text-right
+        %button.btn.btn-default{type: "button", "data-dismiss" => "modal"}
+          Close
+        %button.btn.btn-primary{type: "button", "data-loading-text" => "Updating...", ng: {click: "update_client($event)"}}
+          Update Client Details

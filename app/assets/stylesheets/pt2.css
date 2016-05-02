@@ -17,7 +17,9 @@
  *= require home
  *= require style
 
- *= require_tree ./shared
- *= require_tree ./users
- *= require_tree ./api-feedback
- */
+//= require_tree ./shared
+//= require_tree ./users
+//= require_tree ./api-feedback
+//= require_tree ./components
+*/
+
