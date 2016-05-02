@@ -1,8 +1,7 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require angular
-//= require angular-rails-templates
+//= require browser_details
+//= require vendor/bootstrap.min
+//= require vendor/angular.min
 //= require ng-rails-csrf
-//= require ngstorage
 //= require_tree ./vendor

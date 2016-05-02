@@ -59,6 +59,7 @@ gem "daemons"
 
 # Use Addressable for URI handling
 gem 'addressable'
+gem 'browser_details'
 
 # Use Email Verifier for checking if an email address is real
 #gem 'email_verifier'

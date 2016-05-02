@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   def manage
     authorize :user
     get_all_users
+    respond_to do |format|
+      format.html {}
+    end
   end
 
   protected
