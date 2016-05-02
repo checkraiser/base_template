@@ -34,7 +34,7 @@ module Receta
         resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options], :expose => ['Link']
       end
     end
-    #settings = YAML::load_file Rails.root.join('config', "server_settings.yml")
-    #Rails.application.routes.default_url_options[:host] = settings[Rails.env]['host']
+    settings = YAML::load_file Rails.root.join('config', "server_settings.yml")
+    Rails.application.routes.default_url_options[:host] = settings[Rails.env]['host']
   end
 end
