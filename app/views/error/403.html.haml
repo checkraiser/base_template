@@ -1,0 +1,20 @@
+= page_title "Page access unavailable"
+.page
+  .card.first
+    %h1 Page access unavailable
+
+    - if !user_signed_in?
+      %h2
+        You are currently not signed in,
+        %a{href:"/users/sign_in"} click here to sign in
+
+    - else
+      %h2.line-height-2
+        - if @message.present? && !@message.start_with?("not allowed")
+          .pre<
+            = @message
+        %span
+          If you believe you should have access to this page, please email us at
+        %a{href: "mailto:hello@blimp.sg?Subject=Blimp%20Access%20Error", target: "top"}><
+          hello@blimp.sg
+        %span .

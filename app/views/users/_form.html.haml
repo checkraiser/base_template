@@ -1,0 +1,17 @@
+.card.first
+  .row
+    .col-md-12
+      %h1 User Details
+  .row
+    .col-md-12
+      .field
+        %label.required First Name
+        %input{type: "text", ng: {model: "view_model.user.first_name"}, name: "user[first_name]", autofocus: true}
+      .field
+        %label.required Last Name
+        %input{type: "text", ng: {model: "view_model.user.last_name"}, name: "user[last_name]"}
+      .field
+        %label.required User Role
+        .custom-select
+          %select{name: "user[role]" ,ng: {model: "view_model.user.role",
+            options: "role.humanize() for role in enum.user.roles"}}

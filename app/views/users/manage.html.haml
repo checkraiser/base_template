@@ -1,2 +1,30 @@
 = page_title "Manage Users"
 .page.users-manage{ng: {controller: "users_manage_controller"}}
+  = render "users/new_user_modal"
+  = render "users/settings_user_modal"
+  .card.first
+    .row
+      .col-xs-6
+        %h1 Users ({{User.index.length || 0}})
+      .col-xs-6.text-right
+        %button.btn.btn-default{ng: {click: "open_new_user_modal($event)"}}
+          New user
+    .table.td-padding-small
+      .tr.border-bottom
+        .td
+          %strong Name
+        .td
+          %strong Role
+        .td
+      .tr.border-bottom{ng: {repeat: "user in User.index"}}
+        .td
+          {{user.name}}
+        .td
+          {{user.role.humanize()}}
+        .td
+          %button.btn.btn-default{ng: {click: "open_settings_user_modal(user, $event)"}}
+            Settings
+    .row{ng: {if: "is_empty(User.index)"}}
+      .col-md-12
+        .info
+          No users yet

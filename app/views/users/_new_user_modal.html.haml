@@ -1,0 +1,14 @@
+.new-user-modal.modal.fade{tabindex: -1}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h1
+          New User
+      .modal-body
+        = render "users/form"
+      .modal-footer.text-right
+        %button.btn.btn-default{type: "button", "data-dismiss" => "modal"}
+          Close
+        %button.btn.btn-primary{type: "button", "data-loading-text" => "Creating...", ng: {click: "create_user(view_model.user)"}}
+          Create User
+
