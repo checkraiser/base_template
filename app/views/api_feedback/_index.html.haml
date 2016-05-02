@@ -1,0 +1,23 @@
+-if !(defined?(resource)).nil?
+  = devise_error_messages!
+
+- if alert
+  %p.alert.alert-danger
+    = alert.html_safe
+
+.row{ng: {controller: "api_feedback_index_controller"}}
+  .col-md-12
+    .alert.alert-danger.animate-fade{ng: {if: "!is_empty(ApiFeedback.error_message) || !is_empty(ApiFeedback.errors)"}}
+      %div{ng: {if: "!is_empty(ApiFeedback.errors)"}}
+        {{ApiFeedback.error_message}}
+      %h2.pre{ng: {if: "!is_empty(ApiFeedback.errors)"}}<
+        {{ApiFeedback.error_message}}
+      %ul
+        %li{ng: {repeat: "error in ApiFeedback.errors"}}
+          {{error}}
+
+.api-feedback-index
+  .side-notifications{ng: {controller: "api_feedback_index_controller"}}
+    .side-notification{ng: {repeat: "notification in ApiFeedback.side_notifications track by $index",
+      class: "{'slide-top success': notification.type == 'success', 'toggle in-progress': notification.type == 'in-progress'}"}}
+      {{notification.content}}

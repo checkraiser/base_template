@@ -19,4 +19,5 @@
 
  *= require_tree ./shared
  *= require_tree ./users
+ *= require_tree ./api-feedback
  */

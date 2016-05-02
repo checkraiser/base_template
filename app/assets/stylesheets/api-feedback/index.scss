@@ -1,0 +1,30 @@
+@import "../shared/color-palette";
+@import "../shared/z-index";
+@import "../shared/media-queries";
+
+.api-feedback-index {
+  .side-notifications {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: $topmost-index;
+  }
+
+  .side-notification {
+    padding: 0.3em 1em;
+    margin: 1em;
+    color: black;
+    border-radius: 3px;
+    background: $grey;
+    border: 1px solid $grey-dark;
+    &.success {
+      background: $green-light;
+      border-color: $green;
+    }
+    &.in-progress {
+      background: $yellow-light;
+      border: 1px solid $yellow;
+      color: $yellow-darker;
+    }
+  }
+}
