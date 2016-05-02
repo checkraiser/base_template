@@ -3,7 +3,7 @@ class UserPolicy < ApplicationPolicy
     app_user.is_signed_in?
   end
 
-  def index?
+  def manage?
     app_user.is_signed_in? and app_user.is_admin?
   end
 end
