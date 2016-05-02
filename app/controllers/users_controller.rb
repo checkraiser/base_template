@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+  def manage
     authorize :user
     get_all_users
   end

@@ -1,0 +1,19 @@
+.popover {
+  color: black;
+  cursor: default;
+}
+
+.popover-parent {
+  position: relative;
+  .custom-popover.bottom {
+    top: 1.5em;
+  }
+}
+
+.custom-popover {
+  display: none;
+}
+
+.custom-popover.visible {
+  display: block;
+}

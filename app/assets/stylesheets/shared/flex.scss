@@ -1,0 +1,22 @@
+.flex {
+  display: flex;
+}
+
+.flex.v-center {
+  align-items: center;
+}
+
+.flex.h-center {
+  justify-content: center;
+}
+
+.flex.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-img {
+  object-fit: scale-down; // firefox fix
+  flex: 0 0 auto; // ie fix
+  background: none;
+}

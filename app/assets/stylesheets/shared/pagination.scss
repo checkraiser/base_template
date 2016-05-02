@@ -1,0 +1,30 @@
+@import "color-palette";
+
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+  cursor: default;
+}
+
+.remove-boundaries.pagination>li:last-child>a,
+.remove-boundaries.pagination>li:last-child>span,
+.remove-boundaries.pagination>li:first-child>a,
+.remove-boundaries.pagination>li:first-child>span {
+  display: none;
+}
+
+.pagination {
+  li {
+    a {
+      color: $blue-link;
+    }
+    &.active {
+      a {
+        background: $blue;
+      }
+    }
+    &.active:hover {
+      a {
+        background: $blue;
+      }
+    }
+  }
+}

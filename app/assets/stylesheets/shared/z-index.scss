@@ -1,0 +1,15 @@
+// topmost is for alerts and notifications
+$topmost-index: 2000;
+
+// overlay is for backdrops, etc.
+// this is lower than topmost so that alerts and notifications are still visible if needed
+$overlay-index: 90;
+
+// top is for image previews, etc.
+$top-index: 50;
+
+// other elements that need to be in front of their siblings
+$above-average-index: 20;
+
+// average elements
+$average-index: 10;

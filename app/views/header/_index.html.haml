@@ -5,16 +5,36 @@
         %button.navbar-toggle.collapsed{data: {toggle: "collapse", target: "#header-navbar-collapse"}}
           %span.sr-only Toggle navigation
           .fa.fa-bars
+        %a.logo.unselectable{href: "/", tabindex: -1}
+          = image_tag "logo.png"
       #header-navbar-collapse.collapse.navbar-collapse
         %ul.nav.navbar-nav{ng: {if: "app_user.is_admin"}}
+          %li
+            %a{href: "/users"}
+              Users
           %li
             %a{href: "/clients"}
               Clients
           %li
             %a{href: "/contacts"}
               Contacts
-      %ul.nav.navbar-nav.navbar-right
-        %li{ng: {if: "!app_user.is_signed_in"}}
-          %a{href: "/users/sign_in"} Login
-        %li{ng: {if: "app_user.is_signed_in"}}
-          = link_to('Logout', destroy_user_session_path, :method => :delete)
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown.hover-dropdown.signed-in-nav{ng: {if: "app_user.is_signed_in"}}
+            %a.dropdown-toggle{"data-toggle" => "dropdown"}
+              %span.fa.fa-user-temp.fa-temp.icon
+            %ul.dropdown-menu
+              %li
+                %a{href: "/users/account"}
+                  .small.strong.info
+                    {{app_user.name}} - {{app_user.email}}
+                  View Account
+              %li.divider
+              %li
+                %a{href: "/agreements/privacy_policy"} Privacy Policy
+              %li
+                %a{href: "/agreements/terms_of_use"} Terms of Use
+              %li.divider
+              %li
+                = link_to('Logout', destroy_user_session_path, :method => :delete)
+          %li{ng: {if: "!app_user.is_signed_in"}}
+            %a{href: "/users/sign_in"} Login

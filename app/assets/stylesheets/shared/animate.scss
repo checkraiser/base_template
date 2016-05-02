@@ -1,0 +1,49 @@
+@import "color-palette";
+@import "media-queries";
+
+/* animate-fade */
+.animate-fade.ng-enter {
+  opacity: 0;
+  transition:0.4s linear all;
+}
+.animate-fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+.animate-fade.ng-leave {
+  opacity:1;
+}
+.animate-fade.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+/* animate-fade-in-out */
+.animate-fade-in-out.ng-enter {
+  opacity: 0;
+  transition:0.1s linear all;
+}
+
+.animate-fade-in-out.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.animate-fade-in-out.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-fade-in-out.ng-leave {
+  opacity: 1;
+  transition:0.4s linear all;
+}
+
+.highlight-then-fade {
+  animation: highlighted-fade 3s;
+}
+
+@keyframes highlighted-fade {
+  from {
+    background-color: $blue-link-lighter;
+  }
+  to {
+    background-color: inherit;
+  }
+}

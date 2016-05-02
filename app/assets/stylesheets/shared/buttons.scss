@@ -1,0 +1,157 @@
+@import "color-palette";
+@import "media-queries";
+
+.btn {
+  outline: none;
+  box-shadow: none;
+  padding: 0.4em 2em;
+
+  .icon.right {
+    float: right;
+    margin-top: 0.5em;
+  }
+
+  .icon.fa.right {
+    float: right;
+    margin-top: 0.2em;
+  }
+}
+
+button.close {
+  outline: none;
+}
+
+.btn-options-vertical .btn {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.btn-options .btn {
+  margin-right: 0.5em;
+}
+
+.btn-group-options .btn-group {
+  margin-right: 0.5em;
+}
+
+.btn.text-left {
+  text-align: left;
+}
+
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+  outline: none;
+}
+
+.btn.tight {
+  padding: 0.4em 1em;
+}
+
+.btn.white-space-normal {
+  white-space: normal;
+}
+
+.btn.btn-gold {
+  background: $yellow;
+  border: 1px solid $yellow;
+  color: white;
+  &:hover {
+    background: $yellow-dark;
+  }
+}
+
+.btn.btn-green {
+  background: $green;
+  border: 1px solid $green;
+  color: white;
+  &:hover {
+    background: $green-dark;
+  }
+}
+
+.btn.btn-blue-grey {
+  background: $blue-grey;
+  border: 1px solid $blue-grey;
+  color: white;
+  &:hover {
+    background: $blue-grey-dark;
+  }
+}
+
+.btn.btn-wire-blue {
+  background: white;
+  border: 1px solid $blue;
+  color: $blue;
+  &:hover {
+    background: $blue;
+    color: white;
+  }
+}
+
+.btn.btn-primary {
+  background: $blue;
+  border: 1px solid $blue;
+  color: white;
+  &:hover {
+    background: $blue-dark;
+  }
+}
+
+.btn.btn-aqua {
+  background: $aqua;
+  border: 1px solid $aqua;
+  color: white;
+  &:hover {
+    background: $aqua-dark
+  }
+}
+
+.btn.btn-danger {
+  background: $red;
+  border: 1px solid $red;
+  color: white;
+  &:hover {
+    background: $red-dark
+  }
+}
+
+.btn.link-style, button.link-style {
+  background: none;
+  border: none;
+  color: $blue-link;
+  padding: 0;
+  &:hover {
+    color: $blue-link-dark;
+  }
+  &:focus, &:active, &.active {
+    color: $blue-link;
+  }
+  &:disabled {
+    color: $grey-black;
+  }
+  &.tight {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.btn.inline {
+  display: inline-block;
+  padding: 0 0.5em;
+  height: 100%;
+}
+
+.btn.btn-default {
+  background: white;
+  border: 1px solid $grey;
+  &:hover {
+    background: $grey-lighter;
+  }
+  &:active {
+    background: $grey-light;
+  }
+}
+
+.btn.btn-primary {
+  background: $blue;
+}

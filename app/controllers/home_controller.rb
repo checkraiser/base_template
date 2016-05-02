@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   def index
     skip_authorization
     if !app_user.is_signed_in?
-      redirect_to new_user_session_path
+      redirect_to "/users/sign_in"
       return
     end
   end

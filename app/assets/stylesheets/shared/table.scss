@@ -1,0 +1,83 @@
+@import "../shared/color-palette";
+
+.table {
+  display: table;
+  background: none;
+  .table {
+    background: none;
+  }
+  &.no-margin {
+    margin-bottom: 0;
+  }
+  &.width-auto {
+    width: auto;
+  }
+  .tr {
+    display: table-row;
+  }
+  .tr.border-bottom>.td{
+    border-bottom: 1px solid $grey;
+  }
+  .td {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .td.stretch {
+    width: 100%;
+  }
+  .tr.header .td {
+    font-weight: bold;
+  }
+  .td.vertical-align-top {
+    vertical-align: top;
+  }
+  .tr.highlight-on-hover:hover {
+    background: $grey-white;
+  }
+  &.column-border {
+    .td {
+      border-right: 1px solid $grey;
+    }
+  }
+  &.table-border {
+    border: 1px solid $grey;
+  }
+}
+
+.table-layout-fixed {
+  table-layout: fixed
+}
+
+.table.td-padding-small {
+  .td {
+    padding: 0.5em;
+  }
+}
+
+.table.td-padding-right-bottom-small {
+  .td {
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+  }
+}
+
+table.td-padding-small {
+  td {
+    padding: 0.5em;
+  }
+}
+
+table.td-padding-right-bottom-small {
+  td {
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+  }
+}
+
+table td.stretch {
+  width: 100%;
+}
+
+table td.vertical-align-top {
+  vertical-align: top;
+}

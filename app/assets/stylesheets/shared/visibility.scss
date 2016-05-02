@@ -1,0 +1,26 @@
+@import "media-queries";
+
+.visible-xs-inline {
+  display: inline-block;
+}
+
+.visible-sm-xs-inline {
+  display: inline-block;
+}
+
+.visible-sm-xs-block {
+  display: block;
+}
+
+@media #{$sm-query} {
+  .visible-xs-inline {
+    display: none;
+  }
+}
+
+@media #{$md-query} {
+  .visible-sm-xs-inline, .visible-sm-xs-block {
+    display: none;
+  }
+}
+

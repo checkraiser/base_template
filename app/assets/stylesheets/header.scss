@@ -1,0 +1,167 @@
+@import "shared/color-palette";
+@import "shared/media-queries";
+
+.header.top-bar {
+  background: white;
+  .navbar {
+    border-bottom: 1px solid $grey;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+  }
+  .organization-chooser {
+    max-height: 30em;
+    overflow: auto;
+  }
+  .logo {
+    display: inline-block;
+    line-height: 3em;
+    outline: none;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1.0;
+    }
+    img {
+      display: inline-block;
+      height: 2em;
+      vertical-align: middle;
+      margin-top: 0.5em;
+      margin-right: 1em;
+    }
+  }
+  @media #{$below-sm-width} {
+    .logo {
+      img {
+        margin-top: 0.7em;
+      }
+    }
+  }
+  nav.navbar {
+    ul {
+      > li {
+        > a {
+          color: $grey-black;
+        }
+      }
+    }
+  }
+  .signed-in-nav {
+    .icon {
+      font-size: 0.9em;
+      color: white;
+      background: $grey-mid-black;
+      padding: 0.4em 0.5em;
+      border-radius: 1em;
+    }
+    &:hover {
+      .icon {
+        background: $blue-grey;
+      }
+    }
+  }
+  .chat-nav .icon {
+    font-size: 1.35em;
+  }
+  .chat-nav .dropdown-menu {
+    margin-right: -7em;
+    padding: 0;
+    width: 20em;
+    .message-header, .message-footer {
+      padding: 0.5em 1em;
+      background: $grey-white;
+    }
+    .message-header {
+      border-bottom: 1px solid $grey;
+    }
+    .message-footer {
+      display: block;
+      color: $blue-link;
+      &:hover {
+        color: $blue-link-dark;
+      }
+    }
+    .hr {
+      margin: 0;
+    }
+    .see-all-button {
+      padding: 0.5em 1em;
+    }
+  }
+  .notifications-nav .icon {
+    font-size: 1.2em;
+  }
+  .notifications-nav .dropdown-menu {
+    &.has-notifications {
+      margin-right: -3em;
+      width: 23em;
+      padding: 0;
+    }
+    a {
+      color: $grey-black;
+    }
+    .table {
+      margin-bottom: 0;
+      .tr.notification {
+        &.unread {
+          background: $blue-white;
+        }
+        &:hover {
+          background: $grey-lighter;
+        }
+        .datetime-info {
+          margin-top: 0.3em;
+          font-size: 0.9em;
+        }
+        .td {
+          padding: 0.5em;
+          .image {
+            width: 6em;
+          }
+        }
+      }
+      .tr:last-child {
+        .td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .notification-badge.header-notification-badge {
+    position: absolute;
+    top: 1.2em;
+    right: 0.5em;
+    padding: 0 0.3em;
+    line-height: 1.3em;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
+    font-size: 0.8em;
+  }
+  @media #{$sm-query} {
+    .chat-nav .dropdown-menu {
+      margin-right: 0;
+      width: 20em;
+    }
+    .notifications-nav .dropdown-menu {
+      &.has-notifications {
+        margin-right: 0;
+        width: 30em;
+      }
+    }
+  }
+
+  .search-bar {
+    .search-input-group {
+      width: 100%;
+    }
+    .right-button {
+      padding-top: 0.3em;
+    }
+  }
+  .preferred-search-mode {
+    padding-top: 0.3em;
+    ul.dropdown-menu {
+      margin-top: -0.5em;
+    }
+  }
+}
+
+

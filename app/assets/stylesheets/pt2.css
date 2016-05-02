@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ * The CSS file has been split into into multiple parts to overcome IE size restrictions
+ *
+ *= require font-awesome
+ *= require header
+ *= require home
+ *= require style
+
+ *= require_tree ./shared
+ *= require_tree ./users
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";

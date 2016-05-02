@@ -1,0 +1,263 @@
+@import "shared/color-palette";
+@import "shared/media-queries";
+
+body {
+  background: $grey-lighter;
+}
+
+// fade in for ng-cloak
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+.fade-ng-cloak {
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.fade-ng-cloak[ng-cloak] {
+  display: block !important;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.fade-ng-cloak.ng-cloak,
+.fade-ng-cloak.ng-binding {
+  opacity: 0;
+  transition: opacity 800ms ease-in-out;
+}
+.fade-ng-cloak.ng-binding {
+  opacity: 1;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.icon.clickable {
+  color: $grey-dark;
+  &:hover {
+    color: $grey-mid-black;
+  }
+}
+
+a.black {
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
+a, a:active {
+  color: $blue-link;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: $blue-link-dark;
+  text-decoration: none;
+}
+
+a.white, a.white:active {
+  color: white;
+}
+
+a.white:hover {
+  color: $grey-light;
+}
+
+label.required::before {
+  content: "*";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+
+a.btn.btn-link {
+  cursor: pointer;
+  display: inline-block;
+  &:hover {
+    color: $blue-link-dark;
+    text-decoration: none;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.hr {
+  width: 100%;
+  height: 0;
+  border-top: 2px dashed $grey-light;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  position: relative;
+}
+
+.hr.tall {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.hr.solid {
+  border-top: 1px solid $grey-light;
+}
+
+.hr .hr-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.75em;
+  .content {
+    background: white;
+    display: inline-block;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+  }
+}
+
+.hr .hr-right {
+  position: absolute;
+  right: 0;
+  top: -0.9em;
+  .content {
+    background: white;
+    display: inline-block;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.sm-bold {
+  font-weight: bold;
+}
+
+@media #{$md-query} {
+  .sm-bold {
+    font-weight: normal;
+  }
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.preferred-view-block {
+  display: inline-block;
+}
+
+.pre {
+  white-space: pre-wrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+i.close-icon {
+  cursor: pointer;
+  color: $grey;
+  &:hover {
+    color: $grey-dark;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inline {
+  display: inline;
+  vertical-align: middle;
+}
+
+.grey {
+  color: $grey;
+}
+
+.grey-dark {
+  color: $grey-dark;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.green {
+  color: $green;
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  /*
+    Introduced in IE 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.header-font-weight {
+  font-weight: 500;
+}
+
+.line-height-2 {
+  line-height: 2em;
+}
+
+.line-height-1-5 {
+  line-height: 1.5em;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.chardinjs-tooltiptext {
+  padding: 0.5em;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(asset_path('glyphicons-halflings-regular.eot'));
+  src: url(asset_path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'), url(asset_path('glyphicons-halflings-regular.woff')) format('woff'), url(asset_path('glyphicons-halflings-regular.ttf')) format('truetype'), url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
+}
+
+.isolated-scroll {
+  overflow: auto;
+}
+
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}

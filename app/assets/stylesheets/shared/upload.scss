@@ -1,0 +1,17 @@
+@import "color-palette";
+
+.upload-dropzone {
+  margin-top: 1em;
+  border: 2px dashed $grey;
+  text-align: center;
+  height: 6em;
+  line-height: 6em;
+  vertical-align: middle;
+  color: $grey;
+  font-size: 1.3em;
+}
+
+.nv-file-over {
+  border-color: $grey-black;
+  color: $grey-black;
+}

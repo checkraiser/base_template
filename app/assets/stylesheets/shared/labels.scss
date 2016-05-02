@@ -1,0 +1,21 @@
+@import "color-palette";
+
+.label-success {
+  background: $green;
+}
+
+.label-info {
+  background: $aqua;
+}
+
+.label-warning {
+  background: $yellow;
+}
+
+.label-danger {
+  background: $red;
+}
+
+.label-grey {
+  background: $grey-dark;
+}

@@ -1,0 +1,110 @@
+@import "../shared/color-palette";
+
+.select2, .ui-select-container .select2-choice {
+  height: 2em;
+}
+
+.ui-select-container {
+  width: 100%;
+  cursor: text;
+  border: 1px solid $grey-dark;
+  border-radius: 2px;
+  .select2-choice {
+    cursor: text;
+    border: 1px solid $grey-dark;
+    border-radius: 2px;
+    padding: 0.1em 0.5em;
+    background: white;
+    .select2-arrow {
+      background: white;
+      width: 25px;
+      padding-left: 3px;
+      padding-top: 3px;
+      border-left: 1px solid $grey;
+    }
+  }
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .select2-search {
+    margin-top: 0.5em;
+  }
+  .select2-drop-active {
+    border: 1px solid $grey-dark;
+    border-top: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  input:focus {
+    box-shadow: none;
+  }
+}
+
+.select2-container .select2-choice {
+  box-shadow: none;
+}
+
+.select2-search input {
+  background: white;
+}
+
+.select2-results .select2-highlighted {
+  background: $blue;
+}
+
+.select2-dropdown-open .select2-choice .select2-arrow {
+  border-left: 1px solid $grey;
+}
+
+.ui-select-multiple input[type=text] {
+  display: inline-block;
+}
+
+.ui-select-multiple {
+  border: 1px solid $grey-dark;
+  border-radius: 2px;
+  background: white;
+  box-shadow: none;
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+  padding: 2px 2px 0;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn-xs {
+  font-size: 14px;
+  padding: 0em 0.3em;
+  border: 1px solid $grey-dark;
+  margin: 0 1px 1px 0;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.btn-primary {
+  background: $blue;
+  border-color: $blue;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+  font-size: 18px;
+  padding-top: 2px;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active>a {
+  background: $blue;
+}
+
+.ui-select-bootstrap .ui-select-choices-row>a {
+  padding: 0.5em 1em;
+}
+
+.select2-results .select2-result-label {
+  padding: 0.5em 1em;
+}
+
+.select2-results {
+  padding: 0;
+}
+
+.select2-search {
+  padding: 0.2em 0.5em;
+}

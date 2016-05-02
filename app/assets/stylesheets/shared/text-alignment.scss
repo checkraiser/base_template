@@ -1,0 +1,38 @@
+@import "media-queries";
+
+.text-md-left-sm-center {
+  text-align: center;
+}
+
+.text-md-right-sm-center {
+  text-align: center;
+}
+
+.text-sm-center-xs-left {
+  text-align: left;
+}
+
+
+@media #{$sm-query} {
+  .text-sm-center-xs-left {
+    text-align: center;
+  }
+}
+
+@media #{$md-query} {
+  .text-md-left-sm-center {
+    text-align: left;
+  }
+  .text-md-right-sm-center {
+    text-align: right;
+  }
+  .text-center-md {
+    text-align: center;
+  }
+}
+
+@media #{$below-sm-width} {
+  .text-center-sm {
+    text-align: center;
+  }
+}

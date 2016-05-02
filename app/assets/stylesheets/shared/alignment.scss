@@ -1,0 +1,8 @@
+@import "media-queries";
+
+@media #{$md-query} {
+  .vertical-center-md {
+    display: flex;
+    align-items: center;
+  }
+}

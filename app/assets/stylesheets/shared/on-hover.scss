@@ -1,0 +1,35 @@
+
+.visible-on-hover {
+  display: none;
+}
+
+.hide-on-hover-parent:hover {
+  .hide-on-hover {
+    display: none;
+  }
+}
+
+.visible-on-hover-parent:hover {
+  .visible-on-hover {
+    display: block;
+  }
+  tr.visible-on-hover {
+    display: table-row;
+  }
+}
+
+.expand-on-hover {
+  transition-property: all;
+  transition-duration: 0.5s;
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+.expand-on-hover-parent:hover {
+  .expand-on-hover {
+    max-height: 100em;
+    opacity: 1.0;
+    margin: auto;
+  }
+}

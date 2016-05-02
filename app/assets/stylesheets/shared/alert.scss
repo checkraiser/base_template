@@ -1,0 +1,50 @@
+@import "color-palette";
+@import "z-index";
+@import "media-queries";
+
+.alert {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 0;
+  cursor: pointer;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  &:hover {
+    opacity: 0.9;
+  }
+  &::after {
+    position: absolute;
+    right: 1.5em;
+    font-weight: bold;
+    content: "x";
+    top: 1em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 5px;
+  }
+  margin-bottom: 1em;
+}
+
+@media #{$sm-query} {
+  .alert {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+.alert-success {
+  background: $green;
+  border: 1px solid $green-dark;
+  color: white;
+}
+
+.alert-danger {
+  background: $red;
+  color: white;
+}
+
+#error_explanation {
+  @extend .alert, .alert-danger
+}

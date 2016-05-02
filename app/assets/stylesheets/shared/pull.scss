@@ -1,0 +1,13 @@
+@import "media-queries";
+
+@media #{$sm-query} {
+  .pull-md-right-sm-left {
+    float: left;
+  }
+}
+
+@media #{$md-query} {
+  .pull-md-right-sm-left {
+    float: right;
+  }
+}

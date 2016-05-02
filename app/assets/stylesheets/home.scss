@@ -1,0 +1,167 @@
+@import "shared/color-palette";
+@import "shared/media-queries";
+@import "shared/z-index";
+
+.home {
+  padding-bottom: 2em;
+  .page {
+    padding: 0;
+    margin-top: 2em;
+  }
+  .organization-logo {
+    width: 2em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    border-radius: 3px;
+  }
+  .organization-name {
+    vertical-align: middle;
+  }
+  .card {
+    margin: 0;
+  }
+  .stat-item, .dashboard-item {
+    display: inline-block;
+    text-align: center;
+    padding: 1em;
+    border-radius: 5px;
+    margin-right: 1.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    .icon {
+      font-size: 2em;
+    }
+  }
+  .stat-item {
+    background: $grey-lighter;
+    color: $grey-mid-black;
+  }
+  .dashboard-item {
+    background: $aqua;
+    color: white;
+    cursor: pointer;
+  }
+  .company-type {
+    margin-bottom: 0.5em;
+  }
+
+  .home-consultant {
+    @media #{$above-md-width} {
+      .projects-index {
+        margin-right: 0;
+      }
+      .scrapbooks-index {
+        margin-left: 0;
+      }
+
+      .company-header {
+        margin-right: 0;
+      }
+      .connections-header {
+        margin-left: 0;
+      }
+    }
+
+    .header-row {
+      .table.stackable.stackable-xs {
+        margin: 0;
+        .tr {
+          border: none;
+          margin: 0;
+          .td {
+            padding: 0.8em 1em;
+            .projects-button {
+              margin-right: 0.5em;
+            }
+            .btn {
+              .icon {
+                margin-right: 0.3em;
+              }
+            }
+          }
+        }
+      }
+    }
+    .view-organization-link {
+      font-size: 0.7em;
+    }
+    .products {
+      height: 12em;
+      overflow: hidden;
+      padding: 0 2em;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      position: relative;
+      .view-more {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 2em;
+        border: 1px solid $grey;
+        border-radius: 4px;
+        &:hover {
+          background: $grey-light;
+        }
+        .icon {
+          font-size: 2em;
+        }
+      }
+      .product-block {
+        display: inline-block;
+        height: 48%;
+        width: 10.65em;
+        position: relative;
+        overflow: hidden;
+        margin-right: 0.5em;
+        .product {
+          height: 100%;
+          width: 100%;
+
+          .product-image {
+            border-radius: 2px;
+            max-height: 100%;
+          }
+        }
+        .product-overlay {
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          opacity: 0;
+
+          transition-property: opacity;
+          transition-duration: 0.2s;
+
+          .overlay-background {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: black;
+            opacity: 0.7;
+            z-index: $average-index;
+            border-radius: 3px;
+          }
+          .overlay-text {
+            position: relative;
+            color: white;
+            z-index: $above-average-index;
+            padding: 0.5em;
+            .product-name {
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+            }
+          }
+        }
+        &:hover .product-overlay {
+          opacity: 1.0;
+        }
+      }
+    }
+  }
+}

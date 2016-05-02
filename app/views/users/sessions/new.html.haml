@@ -1,0 +1,44 @@
+= page_title "Sign In"
+.row
+  .col-md-4.col-md-offset-4
+    .sessions-new.page-tight
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .card.first
+          .row
+            .col-md-12
+              %h1 Login to your account
+          .row
+            .col-md-12
+              .field
+                %label{for: "user_email"} Email
+                %input#user_email{type: "email", name: "user[email]", autofocus: "autofocus"}
+              .field
+                %label{for: "user_password"} Password
+                %input#user_password{type: "password", name: "user[password]"}
+              .field
+                %label.clickable
+                  %input{type: "checkbox", name: "user[remember_me]", checked: true, value: 1}
+                  Remember me
+              %input.btn.btn-primary.btn-block{type: "submit",
+                "data-loading-text" => "Logging in...",
+                value: "Login", name: "commit"}
+          .row
+            .col-md-12
+              %a.btn.btn-link.forgot-password-button{href: "/users/password/new"}
+                Forgot your password?
+      .row
+        .col-md-12
+          .card.border-top
+            .or or
+            %a.btn.btn-primary.btn-block.no-margin{href:"/users/sign_up"}
+              Register
+          .clearfix
+
+:javascript
+  $(document).ready(function(){
+    $(".sessions-new form").submit(function(){
+      setTimeout(function(){
+        $(".sessions-new :submit").button("loading")
+      }, 100)
+    })
+  })

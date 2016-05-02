@@ -1,0 +1,19 @@
+.inline-shortcut {
+  display: inline-block;
+  border: 1px dotted white;
+  padding: 0 0.5em;
+  border-radius: 5px;
+  margin-left: 0.5em;
+  background: rgba(255,255,255,0.3);
+}
+
+.inline-shortcut-parent {
+  .inline-shortcut {
+    display: none;
+  }
+  &:hover {
+    .inline-shortcut {
+      display: inline-block;
+    }
+  }
+}
