@@ -16,7 +16,7 @@ RUN \
   npm install -g npm && \
   printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 # Default settings
-ENV RAILS_ENV development
+ENV RAILS_ENV $RAILS_ENV
 ENV APP_HOME /usr/src/funnelchat
 
 # Set up working dirs
