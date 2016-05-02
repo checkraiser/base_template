@@ -8,7 +8,9 @@
     = favicon_link_tag
     = stylesheet_link_tag    'pt1', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'pt2', media: 'all', 'data-turbolinks-track' => true
-
+    = include_gon
+    = javascript_include_tag 'vendor', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body.fade-ng-cloak{ng: {cloak: true}}
@@ -16,5 +18,3 @@
     .container-fluid
       = yield
 
-  = include_gon
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true

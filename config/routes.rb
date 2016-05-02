@@ -18,6 +18,16 @@ Rails.application.routes.draw do
       get  :manage
     end
   end
+  resources :clients do
+    collection do
+      get :manage
+    end
+  end
+  resources :contacts do
+    collection do
+      get :manage
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

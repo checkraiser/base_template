@@ -16,7 +16,7 @@ if Rails.env.test?
     teaspoon-jasmine.js
   )
 end
-
+Rails.application.config.assets.precompile += %w( vendor.js )
 Rails.application.config.assets.precompile += %w(pt1.css pt2.css)
 
  

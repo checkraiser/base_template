@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require vendor
 //= require app
 //= require_tree ./helpers
 //= require_tree ./services
