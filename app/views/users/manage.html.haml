@@ -12,13 +12,19 @@
     .table.td-padding-small
       .tr.border-bottom
         .td
-          %strong Name
+          %strong Email
+        .td
+          %strong First Name
+        .td
+          %strong Last Name
         .td
           %strong Role
         .td
       .tr.border-bottom{ng: {repeat: "user in User.index"}}
         .td
-          {{user.name}}
+          {{user.first_name}}
+        .td
+          {{user.last_name}}
         .td
           {{user.role.humanize()}}
         .td

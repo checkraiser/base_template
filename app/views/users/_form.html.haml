@@ -5,11 +5,20 @@
   .row
     .col-md-12
       .field
+        %label.required Email
+        %input{type: "text", ng: {model: "view_model.user.email"}, name: "user[email]", autofocus: true}
+      .field
         %label.required First Name
-        %input{type: "text", ng: {model: "view_model.user.first_name"}, name: "user[first_name]", autofocus: true}
+        %input{type: "text", ng: {model: "view_model.user.first_name"}, name: "user[first_name]"}
       .field
         %label.required Last Name
         %input{type: "text", ng: {model: "view_model.user.last_name"}, name: "user[last_name]"}
+      .field
+        %label.required Password
+        %input{type: "password", ng: {model: "view_model.user.password"}, name: "user[password]"}
+      .field
+        %label.required Password confirmation
+        %input{type: "password", ng: {model: "view_model.user.password_confirmation"}, name: "user[password_confirmation]"}
       .field
         %label.required User Role
         .custom-select
