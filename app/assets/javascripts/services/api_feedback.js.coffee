@@ -1,5 +1,5 @@
 app.factory 'ApiFeedback', ['$timeout', ($timeout) ->
-  api_feedback = {success_messages: []}
+  api_feedback = {side_notifications: []}
 
   api_feedback.clear_errors = ()->
     api_feedback.error_message = "";
@@ -8,10 +8,19 @@ app.factory 'ApiFeedback', ['$timeout', ($timeout) ->
     api_feedback.modal_errors = []
 
   api_feedback.show_success_message = (message = "Success!", delay = 2000)->
-    api_feedback.success_messages.push(message)
+    message_item = {content: message, type: "success"}
+    api_feedback.side_notifications.push(message_item)
     $timeout ()->
-      api_feedback.success_messages.splice(0, 1)
+      api_feedback.side_notifications.remove(message_item)
     , delay
+
+  api_feedback.show_in_progress_message = (message = "Loading...")->
+    message_item = {content: message, type: "in-progress"}
+    api_feedback.side_notifications.push(message_item)
+    return message_item
+
+  api_feedback.remove_in_progress_message = (message_item)->
+    api_feedback.side_notifications.remove(message_item)
 
   # transform errors from a key-value array, to a listing
   parse_errors = (data_errors, error_key_replacements)->
@@ -19,7 +28,7 @@ app.factory 'ApiFeedback', ['$timeout', ($timeout) ->
     errors = []
     for error_key, error_detail_arr of data_errors
       for error_detail in error_detail_arr
-        # replace error key if there is a custom replacement for it
+# replace error key if there is a custom replacement for it
         if !is_empty(error_key_replacements) && !is_empty(error_key_replacements[error_key])
           error_key = error_key_replacements[error_key]
 
@@ -37,7 +46,7 @@ app.factory 'ApiFeedback', ['$timeout', ($timeout) ->
       api_feedback.modal_error_message = data.message
       api_feedback.modal_errors = parse_errors(data.errors, error_key_replacements)
       $timeout ()->
-        # scroll the currently opened modal to the top
+# scroll the currently opened modal to the top
         $(".modal.in").first().scrollTop(0)
       return
 
