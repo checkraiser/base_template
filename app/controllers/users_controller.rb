@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    authorize :user
+    users = User.all
+    render json: {users: users}
+  end
   protected
   def get_all_users
     gon.users = User.all
